@@ -11,12 +11,12 @@ import { push } from 'react-router-redux'
 // }
 
 export function fetchResume(version) {
-  return function(dispatch) {
+  return dispatch => {
     const url = config.databaseURL + version + "/.json?auth=EBRWKRaOxTSi7t9dAdeRL4sbv74SWh4VSUJErfgI";
     console.log(url)
-    const request = axios.get(url);
-
-    request.then(({ data }) => {
+    return fetch(url)
+    .then(res => res.json())
+    .then(data => {
       //count characters in paragraph
         let characters = 0;
         data.intro.content.map(paragraph => { characters = characters + paragraph.length });
@@ -35,11 +35,12 @@ export function fetchResume(version) {
           data.personality.length < 10 && data.passions.length < 11
         ) {
           console.log('file ok');
-          dispatch({ type: FETCH_JSON, payload: request })
+          dispatch({ type: FETCH_JSON, payload: data })
         } else {
           console.log('Nono, File no good.');
         };
       }
     )
+    .catch(error => console.log('BAD', error))
   }
 }

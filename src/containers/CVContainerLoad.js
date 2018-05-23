@@ -13,11 +13,12 @@ class Cv extends Component {
     }
   }
   render() {
-    const data = this.props.data;
-    console.log(this.props)
-    if (!data.information) {
+
+    console.log(this.props.data)
+    if (!this.props.data) {
       return <div>Loading...</div>;
     }
+    const data = this.props.data;
     return (
       <div id='IndexPage'>
         <div id='resume'>
@@ -172,7 +173,8 @@ class Cv extends Component {
 function mapStateToProps(state) {
   console.log(state)
   return {
-    data: state.data,
+    data: state.data.resume,
+    loading: state.loading
   };
 }
 
