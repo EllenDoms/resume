@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import CvReducer from './cvReducer';
+import { CvReducer } from './cvReducer';
 
 const rootReducer = combineReducers({
-  json: CvReducer
+  data: CvReducer,
 })
 
 export default rootReducer;
