@@ -1,5 +1,4 @@
 import firebase from "firebase";
-import * as admin from 'firebase-admin';
 
 const config = {
     apiKey: "AIzaSyCqGDoMqHoRMp8u917L5mbsqO0LKrXpmjw",

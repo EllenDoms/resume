@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { fetchResume } from '../actions';
 import '../style/cv.css';
 import Tooltip from '../containers/Tooltip';
@@ -13,12 +13,14 @@ class Cv extends Component {
     }
   }
   render() {
-    const { data, loading } = this.props;
+    const { data, loading, notFound } = this.props;
     console.log(loading)
     if (loading) {
       return <div>Loading...</div>;
     }
-
+    if (notFound) {
+      return <div>Not Found!</div>;
+    }
     return (
       <div id='IndexPage'>
         <div id='resume'>
@@ -174,7 +176,8 @@ function mapStateToProps(state) {
   console.log(state)
   return {
     data: state.data.resume,
-    loading: state.data.loading
+    loading: state.data.loading,
+    notFound: state.data.notFound
   };
 }
 
