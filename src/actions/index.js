@@ -1,14 +1,15 @@
 import axios from 'axios';
-import { FETCH_JSON } from './types';
+import { FETCH_JSON, FETCH_SUCCESS } from './types';
 import config from '../config/firebase';
 import { push } from 'react-router-redux'
 
-// export function resumeIsLoading(bool) {
-//     return {
-//         type: LOADING,
-//         isLoading: bool
-//     };
-// }
+export function fetchSuccess(bool, data) {
+  return {
+      type: FETCH_JSON,
+      loading: bool,
+      payload: data
+  };
+}
 
 export function fetchResume(version) {
   return dispatch => {
@@ -35,7 +36,7 @@ export function fetchResume(version) {
           data.personality.length < 10 && data.passions.length < 11
         ) {
           console.log('file ok');
-          dispatch({ type: FETCH_JSON, payload: data })
+          dispatch(fetchSuccess(false, data));
         } else {
           console.log('Nono, File no good.');
         };

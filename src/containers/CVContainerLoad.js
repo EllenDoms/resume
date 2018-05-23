@@ -13,12 +13,12 @@ class Cv extends Component {
     }
   }
   render() {
-
-    console.log(this.props.data)
-    if (!this.props.data) {
+    const { data, loading } = this.props;
+    console.log(loading)
+    if (loading) {
       return <div>Loading...</div>;
     }
-    const data = this.props.data;
+
     return (
       <div id='IndexPage'>
         <div id='resume'>
@@ -174,7 +174,7 @@ function mapStateToProps(state) {
   console.log(state)
   return {
     data: state.data.resume,
-    loading: state.loading
+    loading: state.data.loading
   };
 }
 

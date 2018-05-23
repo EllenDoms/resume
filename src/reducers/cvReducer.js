@@ -1,7 +1,8 @@
-import { FETCH_JSON } from '../actions/types';
+import { FETCH_JSON, FETCH_SUCCESS } from '../actions/types';
 
 const initialState = {
-  loading: false
+  resume: '',
+  loading: true
 };
 
 export function CvReducer (state = initialState, action) {
@@ -10,8 +11,16 @@ export function CvReducer (state = initialState, action) {
       // return default json
       return {
         ...state,
-        resume: action.payload
+        resume: action.payload,
+        loading: false
       };
+      case FETCH_SUCCESS:
+        // return default json
+        return {
+          ...state,
+          resume: action.payload,
+          loading: false
+        };
     default:
       return state;
   }
