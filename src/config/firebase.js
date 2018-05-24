@@ -6,7 +6,8 @@ const config = {
     databaseURL: "https://resume-db248.firebaseio.com/",
     projectId: "resume-db248",
     storageBucket: "resume-db248.appspot.com",
-    messagingSenderId: "1006018239430"
+    messagingSenderId: "1006018239430",
+    auth: "/.json?auth=EBRWKRaOxTSi7t9dAdeRL4sbv74SWh4VSUJErfgI"
   };
 firebase.initializeApp(config);
 

@@ -3,6 +3,8 @@ import { fetchResume } from '../actions';
 import '../style/cv.css';
 import Tooltip from '../containers/Tooltip';
 import { connect } from 'react-redux';
+import NotFound from '../components/notFound';
+import Loading from '../components/loading';
 
 class Cv extends Component {
   componentDidMount() {
@@ -16,10 +18,10 @@ class Cv extends Component {
     const { data, loading, notFound } = this.props;
     console.log(loading)
     if (loading) {
-      return <div>Loading...</div>;
+      return <Loading />;
     }
     if (notFound) {
-      return <div>Not Found!</div>;
+      return <NotFound />;
     }
     return (
       <div id='IndexPage'>

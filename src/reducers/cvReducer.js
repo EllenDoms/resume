@@ -3,7 +3,7 @@ import { FETCH_SUCCESS, FETCH_NOTFOUND } from '../actions/types';
 const initialState = {
   resume: '',
   loading: true,
-  notFound: false
+  notFound: ''
 };
 
 export function CvReducer (state = initialState, action) {

@@ -18,9 +18,9 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch> {/* Switch so / is not /... Most specific route on top */}
-          <Route path="/new" component={ResumeNew} />
-          <Route path="/:id" component={ResumeLoad} />
           <Route path="/NotFound" component={NotFound} />
+          <Route path="/new" component={ResumeNew} />
+          <Route path="/resumes/:id" component={ResumeLoad} />
           <Route path="/" component={ResumeLoad} />
         </Switch>
       </div>
