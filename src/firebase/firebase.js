@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 
-export const config = {
+const config = {
   apiKey: "AIzaSyCqGDoMqHoRMp8u917L5mbsqO0LKrXpmjw",
   authDomain: "resume-db248.firebaseapp.com",
   databaseURL: "https://resume-db248.firebaseio.com/",
@@ -13,7 +13,7 @@ if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 
-const databaseRef = firebase.database().ref();
-export const todosRef = databaseRef.child("todos");
-export const authRef = firebase.auth();
-export const provider = new firebase.auth.GoogleAuthProvider();
+const auth = firebase.auth();
+
+export { auth };
+export default config;

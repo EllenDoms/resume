@@ -3,8 +3,10 @@ import { fetchResume } from '../actions';
 import '../style/cv.css';
 import Tooltip from '../containers/Tooltip';
 import { connect } from 'react-redux';
+
 import NotFound from '../components/notFound';
 import Loading from '../components/loading';
+import SignOutButton from '../components/signOut';
 
 class Cv extends Component {
   componentDidMount() {
@@ -16,7 +18,6 @@ class Cv extends Component {
   }
   render() {
     const { data, loading, notFound } = this.props;
-    console.log(loading)
     if (loading) {
       return <Loading />;
     }
@@ -25,6 +26,8 @@ class Cv extends Component {
     }
     return (
       <div id='IndexPage'>
+        <SignOutButton />
+        <DownloadButton />
         <div id='resume'>
           <div id='page1'>
             <div id='headerbg'/>
@@ -175,7 +178,6 @@ class Cv extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
     data: state.data.resume,
     loading: state.data.loading,
