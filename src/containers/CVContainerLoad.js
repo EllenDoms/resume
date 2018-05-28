@@ -8,6 +8,7 @@ import Loading from '../components/loading';
 
 class Cv extends Component {
   componentDidMount() {
+    console.log(this.props)
     if (!this.props.match.params.id) {
       this.props.fetchResume('resume');
     } else {
