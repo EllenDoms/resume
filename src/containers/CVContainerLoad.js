@@ -3,6 +3,7 @@ import { fetchResume } from '../actions';
 import '../style/cv.css';
 import Tooltip from '../containers/Tooltip';
 import { connect } from 'react-redux';
+import DownloadButton from '../components/downloadButton';
 
 import NotFound from '../components/notFound';
 import Loading from '../components/loading';
@@ -29,6 +30,7 @@ class Cv extends Component {
     }
     return (
       <div id='IndexPage'>
+        <DownloadButton />
         <div id='resume'>
           <div id='page1'>
             <div id='headerbg'/>
