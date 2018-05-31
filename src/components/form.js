@@ -106,11 +106,3 @@ export const Tooltip = ({fields, label}) => (
     <Field label='Description' name={`tooltips.${fields.name}.description`} type="text" component={LongField} />
   </div>
 );
-
-export const Tooltip = ({fields, label}) => (
-  <div className='addItem'>
-    <h3>Tooltip</h3>
-    <Field label='Title' name={`tooltips.${fields.name}.title`} type="text" component={ShortField} />
-    <Field label='Description' name={`tooltips.${fields.name}.description`} type="text" component={LongField} />
-  </div>
-);
