@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 import NotFound from '../components/notFound';
 import Loading from '../components/loading';
-import SignOutButton from '../components/signOut';
 
 class Cv extends Component {
   componentDidMount() {
@@ -30,7 +29,6 @@ class Cv extends Component {
     }
     return (
       <div id='IndexPage'>
-        <SignOutButton />
         <div id='resume'>
           <div id='page1'>
             <div id='headerbg'/>
