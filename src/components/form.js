@@ -97,7 +97,7 @@ export const ProgressBar = ({fields, label, meta: { touched, error, submitFailed
       </button>
     </li>
   </ul>
-);
+)
 
 export const Tooltip = ({fields, label}) => (
   <div className='addItem'>
