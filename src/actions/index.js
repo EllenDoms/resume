@@ -70,7 +70,9 @@ export function fetchResume(version) {
 export function postResume(values, callback) {
   const url = config.databaseURL + config.auth;
   const request = axios.post(url , values)
-    .then(() => callback()); //promise if succesfully completed: do callback (go to other page)
+    .then((response) => {
+      callback(response);
+    }); //promise if succesfully completed: do callback (go to other page)
   return {
     type: POST_RESUME,
     payload: request

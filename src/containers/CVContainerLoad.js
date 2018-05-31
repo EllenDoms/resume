@@ -24,10 +24,12 @@ class Cv extends Component {
     if (notFound) {
       return <NotFound />;
     }
+    if(!data.tooltips) {
+      data.tooltips = {};
+    }
     return (
       <div id='IndexPage'>
         <SignOutButton />
-        <DownloadButton />
         <div id='resume'>
           <div id='page1'>
             <div id='headerbg'/>

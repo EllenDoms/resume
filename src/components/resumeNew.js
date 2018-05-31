@@ -12,8 +12,9 @@ class ResumeNew extends Component {
     // group information properties
     console.log(values);
 
-    this.props.postResume(values, () => {
-      this.props.history.push('/');
+    this.props.postResume(values, (response) => {
+      console.log(response)
+      this.props.history.push(`/resume/${response.data.name}`);
     });
   }
   render() {
