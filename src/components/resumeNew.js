@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, Fields, FieldArray, reduxForm } from 'redux-form';
 import { ShortField, LongField, Timeline, MultiField, ParagraphFields, ProgressBar, Tooltip } from './form';
-import { postResume } from '../actions';
+import { fetchUser, postResume } from '../actions';
 
 let informationErrors = {};
 
 class ResumeNew extends Component {
+  componentWillMount() {
+    this.props.fetchUser();
+  }
   onSubmit = (values) => {
     console.log('submit')
     // group information properties
@@ -234,5 +237,5 @@ export default reduxForm({
   form: 'resumeNew',
 
 })(
-  connect(null, { postResume }) (ResumeNew) //combine reduxForm and connect
+  connect(null, { fetchUser, postResume }) (ResumeNew) //combine reduxForm and connect
 )

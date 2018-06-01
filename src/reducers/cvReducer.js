@@ -6,7 +6,7 @@ const initialState = {
   notFound: ''
 };
 
-export function CvReducer (state = initialState, action) {
+export default function CvReducer (state = initialState, action) {
   switch(action.type) {
     case FETCH_NOTFOUND:
       return {
