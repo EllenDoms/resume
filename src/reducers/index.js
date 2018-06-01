@@ -1,14 +1,12 @@
 import { combineReducers } from 'redux';
-import { CvReducer } from './cvReducer';
-import sessionReducer from "./session";
-import userReducer from './user';
+import CvReducer from './cvReducer';
+import auth from "./authReducer";
 
 import { reducer as formReducer} from 'redux-form'; //assign to alias FormReducer
 
 const rootReducer = combineReducers({
   data: CvReducer,
-  sessionState: sessionReducer,
-  userState: userReducer,
+  auth,
   form: formReducer
 })
 
