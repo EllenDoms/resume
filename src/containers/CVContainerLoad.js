@@ -30,7 +30,6 @@ class Cv extends Component {
     }
     return (
       <div id='IndexPage'>
-        <DownloadButton />
         <div id='resume'>
           <div id='page1'>
             <div id='headerbg'/>
