@@ -22,6 +22,22 @@ function checkData(data) {
   //count characters in paragraph
   let characters = 0;
   data.intro.content.map(paragraph => { return characters = characters + paragraph.length });
+
+  /* (Anthony) "map" is niet geschikt voor wat je hier doet
+   * map = array -> nieuwe array
+   * reduce = array -> 1 value (object, getal, string)
+   * Heb het nog niet getest, maar wat je wil is zoiets:
+   * data.intro.content.reduce(   (acc, paragraph) => acc + paragraph.length      ,           0          )
+   *                                  Functie die voor ieder element                   initiële waarde
+   *                                  wordt uitgevoerd, de return value ervan           van de acc
+   *                                  is steeds de nieuwe waarde voor "acc",
+   *                                  de accumulator. In dit geval is de
+   *                                  accumulator het totale aantal karakters,
+   *                                  die bij elke nieuwe paragraaf wordt
+   *                                  vermeerderd met het aantal karakters
+   *                                  in die paragraaf
+   */
+
   console.log(data.skills)
   //check if input is ok
   return true;
@@ -59,6 +75,9 @@ export function fetchResume(version) {
           console.log('file ok');
           dispatch(fetchSuccess(false, data.data));
         } else {
+            // (Anthony) Oppassen met dit soort stuff :-) Gaat soms mee naar productie (ook bij Telenet) en komt niet professioneel over
+            /* (Anthony) Daarnaast wil je hier waarschijnlijk wel iets visueel doen, bv zeggen dat het
+             * CV wel bestaat maar nog niet compleet is  */
           console.log('Nono, File no good.');
         };
       }
@@ -68,11 +87,16 @@ export function fetchResume(version) {
 }
 
 export function postResume(values, callback) {
+  // (Anthony) Hier ook een redux-action van maken, dat laat u toe om een action te firen bij het handlen van de error, if any
+  // (Anthony) Met die action kunt ge dan uw state veranderen en een bericht tonen in uw UI
   const url = config.databaseURL + config.auth;
   const request = axios.post(url , values)
     .then((response) => {
       callback(response);
-    }); //promise if succesfully completed: do callback (go to other page)
+    })
+      .catch(err => {
+        // (Anthony) Fout afhandelen
+      }); //promise if succesfully completed: do callback (go to other page)
   return {
     type: POST_RESUME,
     payload: request

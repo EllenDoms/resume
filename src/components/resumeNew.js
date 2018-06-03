@@ -74,6 +74,17 @@ class ResumeNew extends Component {
   }
 }
 
+/* (Anthony)
+ * Uw validate functie is een pure functie, dwz ze neemt enkele input parameters (hier de 'values')
+ * en ze 'return't iets. Da's heel goed, betekent dat die eerst en vooral makkelijk te unit testen valt
+ * (steek er x in en er moet y uitkomen want anders is ze kapot), maar ook dat je ze overal kan hergebruiken.
+ * Een goeie plaats om ze te hergebruiken is bijvoorbeeld in actions.js, waar je de functie 'checkData' hebt.
+ * Die checkData doet immers bijna hetzelfde. Als je die vervangt door deze functie, kan je gewoon checken
+ * of het errors-object leeg is, en indien ja, is de data daar ook in orde.
+ *
+ * Het alternatief is dat je uw validatie tweemaal moet onderhouden voor elk nieuw veld dat erbij komt,
+ * verwijderd wordt of waar de validatie verandert. Minder goed dus
+ */
 const validate = values => { //validate function will automatically be called by redux-form
   //check if input is ok
   const errors = {};
