@@ -24,7 +24,7 @@ class ResumeNew extends Component {
     const { handleSubmit } = this.props;
     const required = value => (value ? undefined : 'Required')
     return (
-      <div>
+      <div id="modal">
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <h1>Add your resume</h1>
           <h2>General</h2>
