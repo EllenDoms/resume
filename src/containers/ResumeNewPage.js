@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, Fields, FieldArray, reduxForm } from 'redux-form';
-import { ShortField, LongField, Timeline, MultiField, ParagraphFields, ProgressBar, Tooltip } from './form';
+import { ShortField, LongField, Timeline, MultiField, ParagraphFields, ProgressBar, Tooltip } from '../components/form';
 import { fetchUser, postResume } from '../actions';
 
 let informationErrors = {};

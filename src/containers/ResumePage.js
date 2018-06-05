@@ -29,7 +29,7 @@ class Cv extends Component {
       data.tooltips = {};
     }
     return (
-      <div id='IndexPage'>
+      <div id='ResumePage' className="resume1css">
         <DownloadButton />
         <div id='resume'>
           <div id='page1'>

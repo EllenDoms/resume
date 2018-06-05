@@ -20,7 +20,7 @@ class Signin extends Component {
     return (
       <div id="SignInPage">
         <div className="modal">
-          <h2>Sign in first!</h2>
+          <h2>Simple, with Google!</h2>
           <p>Before we let you build your own online resume with our tool, we ask you to log in with your google account.</p>
           <a href="#" className="social-signin" onClick={this.props.signIn}>
             <i className="fa fa-google social-signin-icon" />

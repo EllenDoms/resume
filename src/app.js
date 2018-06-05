@@ -9,10 +9,11 @@ import { fetchUser } from "./actions";
 import { connect } from "react-redux";
 
 import requireAuth from "./components/auth/requireAuth";
-import ResumeLoad from './containers/CVContainerLoad';
-import ResumeNew from './components/resumeNew';
+import ResumePage from './containers/ResumePage';
+import LandingsPage from './containers/LandingsPage';
+import ResumeNewPage from './containers/ResumeNewPage';
+import SignInPage from './containers/SignInPage';
 import NotFound from './components/notFound';
-import SignIn from './components/signIn';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(promise, reduxThunk)(createStore);
@@ -27,11 +28,11 @@ class App extends Component {
     return (
       <Router>
         <div id='page'>
-          <Route exact path="/" component={ResumeLoad} />
+          <Route exact path="/" component={LandingsPage} />
           <Route exact path="/notFound" component={NotFound} />
-          <Route exact path="/new" component={requireAuth(ResumeNew)} />
-          <Route exact path="/login" component={SignIn} />
-          <Route path="/resume/:id" component={ResumeLoad} />
+          <Route exact path="/new" component={requireAuth(ResumeNewPage)} />
+          <Route exact path="/login" component={SignInPage} />
+          <Route path="/resume/:id" component={ResumePage} />
         </div>
       </Router>
     );
