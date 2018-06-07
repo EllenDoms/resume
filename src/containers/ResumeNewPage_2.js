@@ -12,13 +12,11 @@ const ResumeNewPage_2 = props => {
         <Field name='intro.title' label='Title *' component={ShortField} />
         <FieldArray label='' name='intro.content' component={ParagraphFields} /> {/* more than one, max 5. Characters 400 - 800 */}
 
-        <button type='submit' className='saveBtn' >Save!</button>
         <button type='button' className='previousBtn' onClick={previousPage}>Previous</button>
+        <button type='submit' className='nextBtn'>Next</button>
       </form>
-
     </div>
   )
-
 }
 
 export default reduxForm({

@@ -9,8 +9,6 @@ import ResumeNewPage_1 from './ResumeNewPage_1';
 import ResumeNewPage_2 from './ResumeNewPage_2';
 import ResumeNewPage_3 from './ResumeNewPage_3';
 
-let informationErrors = {};
-
 class ResumeNew extends Component {
   componentWillMount() {
     this.props.fetchUser();
@@ -23,14 +21,8 @@ class ResumeNew extends Component {
       page: 1
     }
   }
-
-  nextPage() {
-    this.setState({ page: this.state.page + 1 })
-  }
-
-  previousPage() {
-    this.setState({ page: this.state.page - 1 })
-  }
+  nextPage() { this.setState({ page: this.state.page + 1 }) }
+  previousPage() { this.setState({ page: this.state.page - 1 }) }
   onSubmit = (values) => {
     console.log('submit')
     console.log(values);
@@ -50,10 +42,6 @@ class ResumeNew extends Component {
     </div>
     )
   }
-}
-
-ResumeNew.propTypes = {
-  onSubmit: PropTypes.func.isRequired
 }
 
 export default connect(null, { fetchUser, postResume }) (ResumeNew); //combine reduxForm and connect
