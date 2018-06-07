@@ -1,4 +1,4 @@
-out:  landingpage.css
+out:  landingspage.css
 
 @primary : #00BA95;
 @primarydark: #0D5D5F;
@@ -8,14 +8,17 @@ out:  landingpage.css
 @greydark: #272B2D;
 @gradient: linear-gradient(135deg, #00BA95 0%, #00919F 100%);
 
+@tabletscreen: ~"only screen and (max-width: 600px)";
+@mobilescreen: ~"only screen and (max-width: 415px)";
+
 .builderCss {
   font-family: 'Roboto', sans-serif;
-
   h2 {
     font-family: BigNoodleTitling;
     font-size: 50px;
-    color: @secondary;
+    color: @primarydark;
     margin-bottom: 60px;
+    letter-spacing: 4px;
     &.center {
       text-align: center;
     }
@@ -38,7 +41,7 @@ out:  landingpage.css
   .container {
     margin: 0 auto;
     max-width: 1200px;
-    padding: 0 70px;
+    padding: 0 6%;
     height: 100%;
   }
 
@@ -52,7 +55,8 @@ out:  landingpage.css
     transition: all 0.2s ease-out;
     font-size: 14px;
     text-decoration: none;
-        display: inline-block;
+    display: inline-block;
+    margin-bottom: 20px;
     &:hover {
       opacity: 1;
       cursor: pointer;
@@ -100,7 +104,7 @@ out:  landingpage.css
       z-index: 1;
       h1 {
         font-family: BigNoodleTitling;
-        font-size: 5em;
+        font-size: 8vw;
         color: #FFFFFF;
       }
       p {
@@ -141,12 +145,12 @@ out:  landingpage.css
     img {
       float: left;
       bottom: 0;
-      width: 350px;
+      width: 45%;
       margin-bottom: -60px;
     }
     .right {
       float: right;
-      width: ~"calc(100% - 420px)";
+      width: 50%;
       margin-top: 40px;
       .quote {
         font-size: 14px;
@@ -158,5 +162,53 @@ out:  landingpage.css
   }
   #footer {
     background-color: @primarydark;
+  }
+
+
+  @media @tabletscreen {
+    #topBlock #tagline h1 {
+      font-size: 14vw;
+    }
+    #stepsBlock ul li img {
+      width: 90px;
+    }
+    #designsBlock {
+      img {
+        float: none;
+        width: 60%;
+        margin: 0 20% -60px;
+      }
+      .right {
+        width: 100%;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        float: none;
+      }
+    }
+  }
+  @media @mobilescreen {
+    h2 {
+      font-size: 6vw;
+    }
+    #topBlock {
+      #tagline {
+        margin-top: 8vh;
+      }
+      #topImg {
+        width: 115vw;
+      }
+    }
+    #stepsBlock ul li {
+      float: none;
+      width: 100%;
+      margin-bottom: 50px;
+      img {
+        width: 120px;
+      }
+    }
+    #designsBlock img {
+      width: 100%;
+      margin: 0 0% -60px;
+    }
   }
 }
